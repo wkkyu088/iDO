@@ -1,25 +1,16 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import RootStack from './screens/RootStack';
+import { LogContextProvider } from './contexts/LogContext';
 
 function App() {
   return (
-    <View style={styles.block}>
-      <Text style={styles.text}>Start Now 🤩</Text>
-    </View>
+    <NavigationContainer>
+      <LogContextProvider>
+        <RootStack /> 
+      </LogContextProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  block: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontFamily: 'BMJUA_ttf',
-    fontSize: 25,
-    color: '#7DA8FF',
-  },
-});
 
 export default App;

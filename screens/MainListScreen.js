@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import ChallengeList from '../components/ChallengeList';
+import LogContext from '../contexts/LogContext';
 
-function MainListScreen(props) {
+function MainListScreen() {
+    const {logs} = useContext(LogContext);
     return (
-        <div>
-            
-        </div>
+        <>
+            <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content" />
+            <View style={styles.block}>
+                <ChallengeList logs={logs} />
+            </View>
+        </>
     );
 }
-
+    
+const styles = StyleSheet.create({
+    block: {
+        flex: 1,
+        backgroundColor: '#FAFAFA',
+    },
+});
+    
 export default MainListScreen;

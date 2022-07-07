@@ -1,10 +1,18 @@
 import React from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import DrawerTab from './DrawerTab';
 
-function RootStack(props) {
+const Stack = createNativeStackNavigator();
+
+function RootStack() {
     return (
-        <div>
-            
-        </div>
+        <Stack.Navigator>
+            <Stack.Screen
+                name="DrawerTab"
+                component={DrawerTab}
+                options={{headerShown: false}}
+            />
+        </Stack.Navigator>
     );
 }
 
