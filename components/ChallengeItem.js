@@ -1,18 +1,26 @@
 import React from 'react';
 import {StyleSheet, Text, View, Pressable} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 function ChallengeItem({log}) {
-    const {days, title, date} = log;
+    const {days, title, date, backgroundColor, color} = log;
 
     return (
         <View style={styles.center}>
             <View style={styles.wrapper}>
                 <Pressable 
-                    style={styles.card}
+                    style={[styles.card, {backgroundColor: backgroundColor}]}
                     android_ripple={{color:'#FAFAFA'}}
-                >
-                    <Text style={styles.days}>{days}</Text>
-                    <Text style={styles.title}>{title}</Text>
+                >   
+                    <LinearGradient 
+                        useAngle={true}
+                        angle={25}
+                        angleCenter={{x: 0.6, y: 0.5}}
+                        colors={[color, backgroundColor]} 
+                        style={styles.days}>
+                        <Text style={styles.days_text}>{days}</Text>
+                    </LinearGradient>
+                    <Text style={[styles.title, {color: color}]}>{title}</Text>
                     <Text style={styles.date}>{date}</Text>
                 </Pressable>            
             </View>
@@ -27,38 +35,36 @@ const styles = StyleSheet.create({
     },
     wrapper: {
         width: 330,
-        height: 150,
-        borderRadius: 16,
+        height: 155,
+        borderRadius: 20,
         overflow: 'hidden',
     },
     card: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#FBEBF1',
         width: 330,
-        height: 150,
-        borderRadius: 16,
+        height: 155,
     },
     days: {
+        marginBottom: 14,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        borderRadius: 20,
+    },
+    days_text: {
         fontFamily: 'BMJUA_ttf',
         fontSize: 16,
         color: 'white',
-        backgroundColor: '#FF6699',
-        marginBottom: 10,
-        paddingHorizontal: 10,
-        paddingVertical: 4,
-        borderRadius: 20,
     },
     title: {
         fontFamily: 'BMJUA_ttf',
         fontSize: 30,
-        color: '#FF6699',
-        marginBottom: 5,
+        marginBottom: 8,
     },
     date: {
         fontFamily: 'BMJUA_ttf',
         fontSize: 16,
-        color: '#A6A6A6',
+        color: '#9C9C9C',
     }
 });
 

@@ -10,9 +10,9 @@ const Drawer = createDrawerNavigator();
 
 function DrawerTab() {
     const header = {
-        lineHeight: 30,
-        fontSize: 25,
-        height: 65,
+        lineHeight: 50,
+        fontSize: 28,
+        height: 70,
     };
 
     return (
