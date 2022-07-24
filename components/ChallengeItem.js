@@ -1,24 +1,33 @@
 import React from 'react';
 import {StyleSheet, Text, View, Pressable} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {useNavigation} from '@react-navigation/native';
 
 function ChallengeItem({log}) {
-    const {days, title, date, backgroundColor, color} = log;
+    const {days, title, date, color} = log;
+    const navigation = useNavigation();
+
+    const onPress = () => {
+        navigation.navigate('Challenge', {
+            log,
+        });
+    };
 
     return (
         <View style={styles.center}>
             <View style={styles.wrapper}>
                 <Pressable 
-                    style={[styles.card, {backgroundColor: backgroundColor}]}
+                    style={[styles.card, {backgroundColor: color+'1A'}]}
                     android_ripple={{color:'#FAFAFA'}}
+                    onPress={onPress}
                 >   
                     <LinearGradient 
                         useAngle={true}
                         angle={25}
                         angleCenter={{x: 0.6, y: 0.5}}
-                        colors={[color, backgroundColor]} 
+                        colors={[color, color+'1A']} 
                         style={styles.days}>
-                        <Text style={styles.days_text}>{days}</Text>
+                        <Text style={styles.days_text}>{days}일</Text>
                     </LinearGradient>
                     <Text style={[styles.title, {color: color}]}>{title}</Text>
                     <Text style={styles.date}>{date}</Text>

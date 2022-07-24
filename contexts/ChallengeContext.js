@@ -1,0 +1,336 @@
+import React, {useEffect, useRef} from 'react';
+import { createContext, useState } from 'react';
+import 'react-native-get-random-values';
+import {v4 as uuidv4} from 'uuid';
+
+const ChallengeContext = createContext();
+
+export function ChallengeContextProvider({children}) {
+    const [dones, setDones] = useState([
+        {
+            id: uuidv4(),
+            count: 1,
+            done: true,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 2,
+            done: true,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 3,
+            done: true,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 4,
+            done: false,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 5,
+            done: true,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 6,
+            done: true,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 7,
+            done: true,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 8,
+            done: false,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 9,
+            done: false,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 10,
+            done: true,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 11,
+            done: true,
+            today: false,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 12,
+            done: false,
+            today: true,
+            upcoming: false,
+        },
+        {
+            id: uuidv4(),
+            count: 13,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 14,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 15,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 16,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 17,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 18,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 19,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 20,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 21,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 22,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 23,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 24,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 25,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 26,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 27,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 28,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 29,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 30,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        /*
+        {
+            id: uuidv4(),
+            count: 16,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 17,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 18,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 19,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 20,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 21,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 22,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 23,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 24,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 25,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 26,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 27,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 28,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 29,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        {
+            id: uuidv4(),
+            count: 30,
+            done: false,
+            today: false,
+            upcoming: true,
+        },
+        */
+    ]);
+
+    return (
+        <ChallengeContext.Provider value={{dones}}>
+            {children}
+        </ChallengeContext.Provider>
+    );
+}
+
+export default ChallengeContext;
